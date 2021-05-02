@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sqlite.EditData;
+import com.example.sqlite.LihatData;
 import com.example.sqlite.MainActivity;
 import com.example.sqlite.R;
 import com.example.sqlite.database.DBController;
@@ -84,6 +85,16 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                 });
                 popupmenu.show();
                 return true;
+            }
+        });
+        holder.cardku.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, LihatData.class);
+                intent.putExtra("ID", id);
+                intent.putExtra("Nama", nm);
+                intent.putExtra("Telpon", tlp);
+                context.startActivity(intent);
             }
         });
     }
